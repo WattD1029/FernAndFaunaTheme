@@ -14,16 +14,16 @@ var(--font-
 {% case settings.menu_font_style %}
   {% when 'regular' %}
     --menu-parent-font-size: var(--menu-font-md--size); --menu-parent-font-line-height:
-    var(--menu-font-md--line-height); --menu-parent-font-color: var(--color-foreground);
-    --menu-parent-active-font-color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+    var(--menu-font-md--line-height); --menu-parent-font-color: rgb(53 88 67);
+    --menu-parent-active-font-color: rgb(111 139 98);
   {% when 'inverse' %}
     --menu-parent-font-size: var(--menu-font-sm--size); --menu-parent-font-line-height:
-    var(--menu-font-sm--line-height); --menu-parent-font-color: rgb(var(--color-foreground-rgb) /
-    var(--opacity-subdued-text)); --menu-parent-active-font-color: var(--color-foreground);
+    var(--menu-font-sm--line-height); --menu-parent-font-color: rgb(92 116 84);
+    --menu-parent-active-font-color: rgb(53 88 67);
   {% when 'inverse_large' %}
     --menu-parent-font-size: var(--menu-font-sm--size); --menu-parent-font-line-height:
-    var(--menu-font-sm--line-height); --menu-parent-font-color: rgb(var(--color-foreground-rgb) /
-    var(--opacity-subdued-text)); --menu-parent-active-font-color: var(--color-foreground);
+    var(--menu-font-sm--line-height); --menu-parent-font-color: rgb(92 116 84);
+    --menu-parent-active-font-color: rgb(53 88 67);
 {% endcase %}
 --menu-child-font-family: var(--font-{{ settings.type_font_primary_link }}--family); --menu-child-font-style:
 var(--font-
@@ -35,14 +35,12 @@ var(--font-
 {% case settings.menu_font_style %}
   {% when 'regular' %}
     --menu-child-font-size: var(--menu-font-sm--size); --menu-child-font-line-height: var(--menu-font-sm--line-height);
-    --menu-child-font-color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
-    --menu-child-active-font-color: var(--color-foreground);
+    --menu-child-font-color: rgb(92 116 84);
+    --menu-child-active-font-color: rgb(53 88 67);
   {% when 'inverse' %}
     --menu-child-font-size: var(--menu-font-md--size); --menu-child-font-line-height: var(--menu-font-md--line-height);
-    --menu-child-font-color: var(--color-foreground); --menu-child-active-font-color: rgb(var(--color-foreground-rgb) /
-    var(--opacity-subdued-text));
+    --menu-child-font-color: rgb(53 88 67); --menu-child-active-font-color: rgb(111 139 98);
   {% when 'inverse_large' %}
     --menu-child-font-size: var(--menu-font-xl--size); --menu-child-font-line-height: var(--menu-font-xl--line-height);
-    --menu-child-font-color: var(--color-foreground); --menu-child-active-font-color: rgb(var(--color-foreground-rgb) /
-    var(--opacity-subdued-text));
+    --menu-child-font-color: rgb(53 88 67); --menu-child-active-font-color: rgb(111 139 98);
 {% endcase %}
