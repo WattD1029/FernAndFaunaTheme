@@ -49,21 +49,21 @@
             "custom_width_mobile": 100,
             "height": "fit",
             "details_position": "flex-start",
-            "gap": 28,
+            "gap": 36,
             "sticky_details_desktop": true,
             "inherit_color_scheme": true,
             "color_scheme": "scheme-1",
             "background_media": "none",
             "video_position": "cover",
             "background_image_position": "cover",
-            "border": "none",
+            "border": "solid",
             "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 24,
-            "padding-block-end": 24,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "border_opacity": 18,
+            "border_radius": 28,
+            "padding-block-start": 32,
+            "padding-block-end": 32,
+            "padding-inline-start": 24,
+            "padding-inline-end": 24
           },
           "blocks": {
             "group_icgrde": {
@@ -151,11 +151,38 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {}
+                },
+                "text_bouquet_intro": {
+                  "type": "text",
+                  "name": "Bouquet intro",
+                  "settings": {
+                    "text": "<p>Hand-tied with fresh seasonal blooms, wrapped beautifully, and ready to send with a thoughtful note.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "paragraph",
+                    "font": "var(--font-body--family)",
+                    "font_size": "0.95rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "rgb(92 116 84)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "text_xrnftG",
-                "price_tVjtKg"
+                "price_tVjtKg",
+                "text_bouquet_intro"
               ]
             },
             "divider_VJhene": {
@@ -217,6 +244,369 @@
               },
               "block_order": []
             },
+            "group_service_highlights": {
+              "type": "group",
+              "name": "Service highlights",
+              "settings": {
+                "open_in_new_tab": false,
+                "content_direction": "row",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "group_freshness_card": {
+                  "type": "group",
+                  "name": "Freshness card",
+                  "settings": {
+                    "open_in_new_tab": false,
+                    "content_direction": "column",
+                    "vertical_on_mobile": true,
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
+                    "gap": 8,
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "custom_height": 100,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "background_media": "none",
+                    "video_position": "cover",
+                    "background_image_position": "cover",
+                    "border": "solid",
+                    "border_width": 1,
+                    "border_opacity": 14,
+                    "border_radius": 20,
+                    "toggle_overlay": false,
+                    "overlay_color": "#00000026",
+                    "overlay_style": "solid",
+                    "gradient_direction": "to top",
+                    "padding-block-start": 18,
+                    "padding-block-end": 18,
+                    "padding-inline-start": 18,
+                    "padding-inline-end": 18
+                  },
+                  "blocks": {
+                    "icon_freshness": {
+                      "type": "icon",
+                      "settings": {
+                        "icon": "leaf",
+                        "image_upload": "",
+                        "width": 22,
+                        "link": "",
+                        "open_in_new_tab": false
+                      },
+                      "blocks": {}
+                    },
+                    "text_freshness_title": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p><strong>Fresh seasonal stems</strong></p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-heading--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "rgb(53 88 67)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "text_freshness_body": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Arranged with blooms chosen for color harmony, movement, and a just-cut look.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.875rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "rgb(92 116 84)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "icon_freshness",
+                    "text_freshness_title",
+                    "text_freshness_body"
+                  ]
+                },
+                "group_delivery_card": {
+                  "type": "group",
+                  "name": "Delivery card",
+                  "settings": {
+                    "open_in_new_tab": false,
+                    "content_direction": "column",
+                    "vertical_on_mobile": true,
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
+                    "gap": 8,
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "custom_height": 100,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "background_media": "none",
+                    "video_position": "cover",
+                    "background_image_position": "cover",
+                    "border": "solid",
+                    "border_width": 1,
+                    "border_opacity": 14,
+                    "border_radius": 20,
+                    "toggle_overlay": false,
+                    "overlay_color": "#00000026",
+                    "overlay_style": "solid",
+                    "gradient_direction": "to top",
+                    "padding-block-start": 18,
+                    "padding-block-end": 18,
+                    "padding-inline-start": 18,
+                    "padding-inline-end": 18
+                  },
+                  "blocks": {
+                    "icon_delivery": {
+                      "type": "icon",
+                      "settings": {
+                        "icon": "truck",
+                        "image_upload": "",
+                        "width": 22,
+                        "link": "",
+                        "open_in_new_tab": false
+                      },
+                      "blocks": {}
+                    },
+                    "text_delivery_title": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p><strong>Gift-ready delivery</strong></p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-heading--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "rgb(53 88 67)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "text_delivery_body": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Wrapped with care so your bouquet feels special from doorstep to vase.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.875rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "rgb(92 116 84)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "icon_delivery",
+                    "text_delivery_title",
+                    "text_delivery_body"
+                  ]
+                },
+                "group_note_card": {
+                  "type": "group",
+                  "name": "Note card",
+                  "settings": {
+                    "open_in_new_tab": false,
+                    "content_direction": "column",
+                    "vertical_on_mobile": true,
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
+                    "gap": 8,
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "custom_height": 100,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "background_media": "none",
+                    "video_position": "cover",
+                    "background_image_position": "cover",
+                    "border": "solid",
+                    "border_width": 1,
+                    "border_opacity": 14,
+                    "border_radius": 20,
+                    "toggle_overlay": false,
+                    "overlay_color": "#00000026",
+                    "overlay_style": "solid",
+                    "gradient_direction": "to top",
+                    "padding-block-start": 18,
+                    "padding-block-end": 18,
+                    "padding-inline-start": 18,
+                    "padding-inline-end": 18
+                  },
+                  "blocks": {
+                    "icon_note": {
+                      "type": "icon",
+                      "settings": {
+                        "icon": "heart",
+                        "image_upload": "",
+                        "width": 22,
+                        "link": "",
+                        "open_in_new_tab": false
+                      },
+                      "blocks": {}
+                    },
+                    "text_note_title": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p><strong>Thoughtful finishing touch</strong></p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-heading--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "rgb(53 88 67)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "text_note_body": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Add a personal message for birthdays, anniversaries, thank-yous, and quiet gestures.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.875rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "rgb(92 116 84)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "icon_note",
+                    "text_note_title",
+                    "text_note_body"
+                  ]
+                }
+              },
+              "block_order": [
+                "group_freshness_card",
+                "group_delivery_card",
+                "group_note_card"
+              ]
+            },
             "text_aEtTtq": {
               "type": "text",
               "name": "Product description",
@@ -242,6 +632,152 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "accordion_bouquet_details": {
+              "type": "accordion",
+              "name": "Bouquet details",
+              "settings": {
+                "icon": "caret",
+                "dividers": true,
+                "type_preset": "h6",
+                "inherit_color_scheme": true,
+                "color_scheme": "scheme-1",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 8,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "row_bouquet_story": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "What to expect",
+                    "open_by_default": true,
+                    "icon": "leaf",
+                    "image_upload": "",
+                    "width": 16
+                  },
+                  "blocks": {
+                    "text_bouquet_story": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Each bouquet is florist-arranged using fresh, seasonal stems in the spirit of the design shown. If a bloom is unavailable, we may substitute a similar flower of equal beauty and value while keeping the overall palette and mood intact.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_bouquet_story"
+                  ]
+                },
+                "row_bouquet_care": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Care tips",
+                    "open_by_default": false,
+                    "icon": "plant",
+                    "image_upload": "",
+                    "width": 16
+                  },
+                  "blocks": {
+                    "text_bouquet_care": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>For the longest vase life, trim the stems at an angle, place them in fresh water right away, and refresh the water every 1 to 2 days. Keep your bouquet away from direct sun, heaters, and ripening fruit.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_bouquet_care"
+                  ]
+                },
+                "row_bouquet_gifting": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Gift-ready details",
+                    "open_by_default": false,
+                    "icon": "heart",
+                    "image_upload": "",
+                    "width": 16
+                  },
+                  "blocks": {
+                    "text_bouquet_gifting": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Designed for birthdays, anniversaries, thank-you moments, and just-because surprises. Your bouquet arrives wrapped for presentation and can be paired with a personal message at checkout.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_bouquet_gifting"
+                  ]
+                }
+              },
+              "block_order": [
+                "row_bouquet_story",
+                "row_bouquet_care",
+                "row_bouquet_gifting"
+              ]
             }
           },
           "block_order": [
@@ -249,7 +785,9 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq"
+            "group_service_highlights",
+            "text_aEtTtq",
+            "accordion_bouquet_details"
           ]
         }
       },
