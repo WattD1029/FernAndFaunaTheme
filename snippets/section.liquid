@@ -7,7 +7,7 @@
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
-  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}{% if section.settings.custom_class != blank %} {{ section.settings.custom_class | escape }}{% endif %}"
   data-testid="ui-test-section"
 
   {% if request.visual_preview_mode %}
@@ -53,6 +53,7 @@
         layout-panel-flex--{{ section.settings.content_direction }}
         section-content-wrapper
         {% if section.settings.vertical_on_mobile %} mobile-column{% endif %}
+        {% if section.settings.custom_class != blank %} {{ section.settings.custom_class | escape }}__content{% endif %}
       "
       style="
         {% render 'layout-panel-style', settings: section.settings %}
@@ -93,5 +94,115 @@
 
   .custom-section-content {
     z-index: var(--layer-flat);
+  }
+
+  .about-story-layout {
+    --about-story-panel-radius: 32px;
+    --about-story-panel-padding: clamp(1.5rem, 1.1rem + 1.2vw, 2.35rem);
+  }
+
+  .about-story-layout .section-content-wrapper {
+    gap: clamp(1rem, 0.75rem + 1vw, 1.6rem);
+  }
+
+  .about-story-layout .text-block:first-child {
+    width: min(100%, 18rem);
+  }
+
+  .about-story-layout .text-block:first-child h1,
+  .about-story-layout .text-block:first-child h2 {
+    margin: 0;
+    font-size: clamp(2.75rem, 2rem + 2vw, 4.25rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+  }
+
+  .about-story-layout .text-block:last-child {
+    width: min(100%, 52rem);
+    min-width: 0;
+    padding: var(--about-story-panel-padding);
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.08);
+    border-radius: var(--about-story-panel-radius);
+    background:
+      linear-gradient(180deg, rgb(var(--color-background-rgb)), rgb(var(--color-background-rgb) / 0.96)),
+      linear-gradient(135deg, rgb(236 228 218 / 0.55), rgb(255 255 255 / 0));
+    box-shadow: 0 18px 40px rgb(var(--color-shadow-rgb) / 0.05);
+    color: rgb(var(--color-foreground-rgb) / 0.82);
+    line-height: 1.85;
+  }
+
+  .about-story-layout .text-block:last-child p + p {
+    margin-top: 1.35rem;
+  }
+
+  .about-feature-grid {
+    --about-feature-card-radius: 28px;
+    --about-feature-card-padding: clamp(1.35rem, 1rem + 1vw, 2rem);
+  }
+
+  .about-feature-grid .section-content-wrapper {
+    align-items: stretch;
+    gap: clamp(1rem, 0.75rem + 1vw, 1.5rem);
+  }
+
+  .about-feature-grid .group-block {
+    min-width: 0;
+    padding: var(--about-feature-card-padding);
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.08);
+    border-radius: var(--about-feature-card-radius);
+    background:
+      linear-gradient(180deg, rgb(var(--color-background-rgb)), rgb(var(--color-background-rgb) / 0.98)),
+      linear-gradient(145deg, rgb(236 228 218 / 0.38), rgb(255 255 255 / 0));
+    box-shadow: 0 16px 34px rgb(var(--color-shadow-rgb) / 0.05);
+  }
+
+  .about-feature-grid .group-block :is(h1, h2, h3, h4) {
+    margin: 0;
+    font-size: clamp(1.8rem, 1.4rem + 0.7vw, 2.35rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+  }
+
+  .about-feature-grid .group-block ul,
+  .about-feature-grid .group-block p {
+    margin: 0;
+    color: rgb(var(--color-foreground-rgb) / 0.8);
+    line-height: 1.7;
+  }
+
+  .about-feature-grid .group-block ul {
+    padding-left: 1.2rem;
+  }
+
+  .about-feature-grid .group-block li + li {
+    margin-top: 0.35rem;
+  }
+
+  .about-feature-grid .group-block p br {
+    content: '';
+    display: block;
+    margin-top: 0.35rem;
+  }
+
+  .about-feature-grid .group-block,
+  .about-feature-grid .group-block-content {
+    height: 100%;
+  }
+
+  @media screen and (max-width: 749px) {
+    .about-story-layout {
+      --about-story-panel-radius: 24px;
+      --about-story-panel-padding: 1.35rem;
+    }
+
+    .about-story-layout .text-block:first-child {
+      width: 100%;
+    }
+
+    .about-feature-grid {
+      --about-feature-card-radius: 24px;
+      --about-feature-card-padding: 1.25rem;
+    }
   }
 {% endstylesheet %}

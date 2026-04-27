@@ -31,7 +31,17 @@ function buildStoreUrl(pathname = '/') {
     return pathname;
   }
 
-  return new URL(pathname, getStoreUrl()).toString();
+  const baseUrl = new URL(getStoreUrl());
+  const targetUrl = new URL(pathname, baseUrl);
+
+  // Preserve preview theme query params when tests navigate to relative storefront paths.
+  for (const [key, value] of baseUrl.searchParams.entries()) {
+    if (!targetUrl.searchParams.has(key)) {
+      targetUrl.searchParams.set(key, value);
+    }
+  }
+
+  return targetUrl.toString();
 }
 
 async function firstVisibleLocator(locators) {
@@ -93,7 +103,18 @@ async function unlockStorefront(page) {
 }
 
 async function gotoStorefront(page, pathname = '/') {
-  await page.goto(buildStoreUrl(pathname), { waitUntil: 'domcontentloaded' });
+  const storeUrl = getStoreUrl();
+  const targetUrl = buildStoreUrl(pathname);
+  const baseUrl = new URL(storeUrl);
+
+  // Shared preview URLs rely on a preview cookie before deep links reliably load the same theme.
+  if (targetUrl !== storeUrl && baseUrl.searchParams.size > 0) {
+    await page.goto(storeUrl, { waitUntil: 'domcontentloaded' });
+    await unlockStorefront(page);
+    await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
+  }
+
+  await page.goto(targetUrl, { waitUntil: 'domcontentloaded' });
   await unlockStorefront(page);
   await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
 }
@@ -124,9 +145,14 @@ function collectionPath() {
   return process.env.COLLECTION_PATH;
 }
 
+function aboutPath() {
+  return process.env.ABOUT_PATH;
+}
+
 module.exports = {
   gotoStorefront,
   expectNoHorizontalOverflow,
   productPath,
   collectionPath,
+  aboutPath,
 };

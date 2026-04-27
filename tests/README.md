@@ -8,6 +8,7 @@ Use this setup with a local Shopify preview opened by `shopify theme dev`.
 - `SHOP_PASSWORD`: optional storefront password if the preview redirects to `/password`. Defaults to `testing` in the Playwright helper.
 - `PRODUCT_PATH`: optional product path such as `/products/your-product-handle`
 - `COLLECTION_PATH`: optional collection path such as `/collections/all`
+- `ABOUT_PATH`: optional About page path such as `/pages/about-us`
 
 ## Run tests
 
@@ -15,6 +16,7 @@ Use this setup with a local Shopify preview opened by `shopify theme dev`.
 $env:SHOP_URL="https://your-theme-preview-url"
 $env:PRODUCT_PATH="/products/your-product-handle"
 $env:COLLECTION_PATH="/collections/all"
+$env:ABOUT_PATH="/pages/about-us"
 npm run test:e2e
 ```
 
@@ -54,3 +56,4 @@ Use Playwright MCP for inspection and selector discovery. Use the Playwright tes
 - `tests/header/header-menu.spec.js`: header navigation behavior by breakpoint
 - `tests/product/product-information.spec.js`: product information layout
 - `tests/collection/product-grid.spec.js`: collection product grid visibility
+- `tests/about/about-welcome.spec.js`: About Us welcome section layout
