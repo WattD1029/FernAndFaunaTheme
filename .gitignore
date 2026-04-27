@@ -1,0 +1,9 @@
+node_modules/
+.playwright-mcp/
+playwright-report/
+test-results/
+tmp-playwright-homepage-check/
+.artifacts/
+/.opencode-theme-dev*.log
+/collection-page-snapshot.md
+/collections-all-*.png
