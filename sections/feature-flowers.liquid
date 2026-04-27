@@ -1,0 +1,413 @@
+
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<section
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} feature-flowers spacing-style ui-test-feature-flowers"
+  style="{% render 'spacing-style', settings: section.settings %} --feature-flowers-columns: {{ section.settings.desktop_columns }};"
+  data-testid="feature-flowers"
+>
+  {% if section.settings.title != blank or section.settings.subtitle != blank %}
+    <div class="feature-flowers__header">
+      {% if section.settings.title != blank %}
+        <h2 class="feature-flowers__title">{{ section.settings.title }}</h2>
+      {% endif %}
+
+      {% if section.settings.subtitle != blank %}
+        <div class="feature-flowers__subtitle rte">{{ section.settings.subtitle }}</div>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="feature-flowers__grid" data-testid="feature-flowers-grid">
+    {% for block in section.blocks %}
+      <article class="feature-flowers__card" {{ block.shopify_attributes }} data-testid="feature-flowers-card">
+        <div class="feature-flowers__media-wrapper">
+          {% if block.settings.image != blank %}
+            {{
+              block.settings.image
+              | image_url: width: 900
+              | image_tag:
+                loading: 'lazy',
+                widths: '320, 480, 720, 900',
+                class: 'feature-flowers__image',
+                alt: block.settings.image.alt | default: block.settings.title | escape
+            }}
+          {% else %}
+            {{ 'hero-apparel-1' | placeholder_svg_tag: 'feature-flowers__image feature-flowers__image--placeholder' }}
+          {% endif %}
+        </div>
+
+        <div class="feature-flowers__content">
+          {% if block.settings.price_tag != blank %}
+            <p class="feature-flowers__tag">{{ block.settings.price_tag }}</p>
+          {% endif %}
+
+          {% if block.settings.title != blank %}
+            <h3 class="feature-flowers__card-title">{{ block.settings.title }}</h3>
+          {% endif %}
+
+          {% if block.settings.description != blank %}
+            <div class="feature-flowers__description rte">{{ block.settings.description }}</div>
+          {% endif %}
+
+          {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+            <a
+              class="feature-flowers__button"
+              href="{{ block.settings.button_link }}"
+              data-testid="feature-flowers-button"
+            >
+              {{ block.settings.button_label }}
+            </a>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .ui-test-feature-flowers {
+    --feature-flowers-card-radius: 28px;
+    --feature-flowers-card-padding: clamp(1.1rem, 1rem + 0.7vw, 1.5rem);
+    --feature-flowers-image-ratio: 4 / 5;
+  }
+
+  .ui-test-feature-flowers.feature-flowers {
+    display: grid;
+    gap: clamp(1.5rem, 1.2rem + 1vw, 2.5rem);
+  }
+
+  .ui-test-feature-flowers .feature-flowers__header {
+    display: grid;
+    gap: 0.75rem;
+    max-width: 40rem;
+  }
+
+  .ui-test-feature-flowers .feature-flowers__title {
+    margin: 0;
+    font-size: clamp(2rem, 1.6rem + 1.4vw, 3.1rem);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    color: rgb(var(--color-foreground-rgb) / 0.95);
+    text-wrap: balance;
+  }
+
+  .ui-test-feature-flowers .feature-flowers__subtitle {
+    color: rgb(var(--color-foreground-rgb) / 0.72);
+    line-height: 1.6;
+  }
+
+  .ui-test-feature-flowers .feature-flowers__subtitle > *:first-child,
+  .ui-test-feature-flowers .feature-flowers__description > *:first-child {
+    margin-top: 0;
+  }
+
+  .ui-test-feature-flowers .feature-flowers__subtitle > *:last-child,
+  .ui-test-feature-flowers .feature-flowers__description > *:last-child {
+    margin-bottom: 0;
+  }
+
+  .ui-test-feature-flowers .feature-flowers__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+
+  .ui-test-feature-flowers .feature-flowers__card {
+    display: grid;
+    gap: 0;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.08);
+    border-radius: var(--feature-flowers-card-radius);
+    background: linear-gradient(180deg, rgb(var(--color-background-rgb) / 0.98), rgb(244 239 231 / 0.95));
+    box-shadow: 0 16px 36px rgb(var(--color-shadow-rgb) / 0.08);
+    transition: transform var(--surface-transition-duration) var(--surface-transition-timing),
+      box-shadow var(--surface-transition-duration) var(--surface-transition-timing),
+      border-color var(--surface-transition-duration) var(--surface-transition-timing);
+  }
+
+  .ui-test-feature-flowers .feature-flowers__media-wrapper {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgb(241 247 239), rgb(252 249 244));
+  }
+
+  .ui-test-feature-flowers .feature-flowers__image {
+    width: 100%;
+    aspect-ratio: var(--feature-flowers-image-ratio);
+    object-fit: cover;
+    transition: transform var(--surface-transition-duration) var(--surface-transition-timing),
+      opacity var(--surface-transition-duration) var(--surface-transition-timing);
+  }
+
+  .ui-test-feature-flowers .feature-flowers__image--placeholder {
+    padding: 18%;
+    color: rgb(var(--color-foreground-rgb) / 0.2);
+  }
+
+  .ui-test-feature-flowers .feature-flowers__content {
+    display: grid;
+    gap: 0.85rem;
+    align-content: start;
+    padding: var(--feature-flowers-card-padding);
+  }
+
+  .ui-test-feature-flowers .feature-flowers__tag {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(104 132 96);
+  }
+
+  .ui-test-feature-flowers .feature-flowers__card-title {
+    margin: 0;
+    font-size: clamp(1.25rem, 1.1rem + 0.45vw, 1.6rem);
+    line-height: 1.2;
+    color: rgb(var(--color-foreground-rgb) / 0.95);
+  }
+
+  .ui-test-feature-flowers .feature-flowers__description {
+    color: rgb(var(--color-foreground-rgb) / 0.7);
+    line-height: 1.55;
+  }
+
+  .ui-test-feature-flowers .feature-flowers__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-height: 2.85rem;
+    margin-top: 0.25rem;
+    padding: 0.85rem 1.2rem;
+    border-radius: 999px;
+    background: rgb(234 243 228);
+    color: rgb(63 85 56);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color var(--surface-transition-duration) var(--surface-transition-timing),
+      color var(--surface-transition-duration) var(--surface-transition-timing),
+      transform var(--surface-transition-duration) var(--surface-transition-timing);
+  }
+
+  .ui-test-feature-flowers .feature-flowers__button:focus-visible {
+    outline: 2px solid currentcolor;
+    outline-offset: 3px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ui-test-feature-flowers .feature-flowers__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .ui-test-feature-flowers .feature-flowers__grid {
+      grid-template-columns: repeat(var(--feature-flowers-columns), minmax(0, 1fr));
+      gap: 1.6rem;
+    }
+  }
+
+  @media (any-pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .ui-test-feature-flowers .feature-flowers__card:hover {
+      transform: translateY(-6px);
+      border-color: rgb(var(--color-foreground-rgb) / 0.14);
+      box-shadow: 0 24px 54px rgb(var(--color-shadow-rgb) / 0.12);
+    }
+
+    .ui-test-feature-flowers .feature-flowers__card:hover .feature-flowers__image {
+      transform: scale(1.03);
+    }
+
+    .ui-test-feature-flowers .feature-flowers__button:hover {
+      transform: translateY(-1px);
+      background: rgb(223 237 214);
+      color: rgb(54 73 48);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ui-test-feature-flowers {
+      --feature-flowers-card-radius: 22px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Feature flowers",
+  "class": "ui-test-feature-flowers",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Our Featured Flowers"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "<p>Hand-tied bouquets and seasonal stems curated to bring softness, freshness, and a premium floral touch to every room.</p>"
+    },
+    {
+      "type": "select",
+      "id": "desktop_columns",
+      "label": "Desktop columns",
+      "options": [
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page"
+        },
+        {
+          "value": "full-width",
+          "label": "Full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 56
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Flower feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Spring Bouquet"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Fresh seasonal blooms arranged with airy greens and a softly layered palette.</p>"
+        },
+        {
+          "type": "text",
+          "id": "price_tag",
+          "label": "Price or tag",
+          "default": "From $39"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Shop now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Feature flowers",
+      "category": "Custom",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "title": "Spring Bouquet",
+            "description": "<p>Bright garden roses, ranunculus, and eucalyptus gathered into a fresh everyday statement.</p>",
+            "price_tag": "From $39",
+            "button_label": "Shop now"
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "title": "Blush Garden",
+            "description": "<p>Soft pink petals and creamy neutrals styled for a calm, elegant gifting moment.</p>",
+            "price_tag": "Limited release",
+            "button_label": "Discover"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "title": "Morning Meadow",
+            "description": "<p>Textural wildflower-inspired stems designed to feel light, airy, and quietly luxurious.</p>",
+            "price_tag": "Florist favorite",
+            "button_label": "Shop now"
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "title": "Ivory Signature",
+            "description": "<p>A refined neutral arrangement with creamy blooms and fresh foliage for premium interiors.</p>",
+            "price_tag": "From $52",
+            "button_label": "View bouquet"
+          }
+        }
+      },
+      "block_order": ["feature_1", "feature_2", "feature_3", "feature_4"]
+    }
+  ]
+}
+{% endschema %}
