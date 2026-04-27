@@ -1,0 +1,256 @@
+
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<section
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} about-welcome spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+  data-testid="about-welcome"
+>
+  <div class="about-welcome__panel">
+    <div class="about-welcome__intro" data-testid="about-welcome-intro">
+      {% if section.settings.eyebrow != blank %}
+        <p class="about-welcome__eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+
+      {% if section.settings.title != blank %}
+        <h2 class="about-welcome__title">{{ section.settings.title }}</h2>
+      {% endif %}
+
+      {% if section.settings.supporting_text != blank %}
+        <div class="about-welcome__supporting rte">{{ section.settings.supporting_text }}</div>
+      {% endif %}
+
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a class="about-welcome__button" href="{{ section.settings.button_link }}" data-testid="about-welcome-button">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="about-welcome__body rte" data-testid="about-welcome-body">
+      {{ section.settings.body }}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .about-welcome {
+    --about-welcome-panel-radius: 30px;
+    --about-welcome-panel-padding: clamp(1.5rem, 1rem + 2vw, 3rem);
+    --about-welcome-gap: clamp(1.5rem, 1.2rem + 1vw, 3rem);
+  }
+
+  .about-welcome__panel {
+    display: grid;
+    gap: var(--about-welcome-gap);
+    padding: var(--about-welcome-panel-padding);
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.08);
+    border-radius: var(--about-welcome-panel-radius);
+    background:
+      linear-gradient(180deg, rgb(var(--color-background-rgb)), rgb(var(--color-background-rgb) / 0.96)),
+      linear-gradient(135deg, rgb(236 228 218 / 0.55), rgb(255 255 255 / 0));
+    box-shadow: 0 18px 44px rgb(var(--color-shadow-rgb) / 0.06);
+  }
+
+  .about-welcome__intro,
+  .about-welcome__body {
+    min-width: 0;
+  }
+
+  .about-welcome__eyebrow {
+    margin: 0 0 0.8rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(110 89 72);
+  }
+
+  .about-welcome__title {
+    margin: 0;
+    max-width: 12ch;
+    font-size: clamp(2rem, 1.5rem + 2vw, 3.6rem);
+    line-height: 0.97;
+    letter-spacing: -0.04em;
+    color: rgb(var(--color-foreground-rgb) / 0.96);
+    text-wrap: balance;
+  }
+
+  .about-welcome__supporting {
+    margin-top: 1rem;
+    max-width: 28rem;
+    color: rgb(var(--color-foreground-rgb) / 0.72);
+    line-height: 1.6;
+  }
+
+  .about-welcome__supporting > *:first-child,
+  .about-welcome__body > *:first-child {
+    margin-top: 0;
+  }
+
+  .about-welcome__supporting > *:last-child,
+  .about-welcome__body > *:last-child {
+    margin-bottom: 0;
+  }
+
+  .about-welcome__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.9rem;
+    width: fit-content;
+    margin-top: 1.4rem;
+    padding: 0.8rem 1.15rem;
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.14);
+    border-radius: 999px;
+    background: rgb(var(--color-background-rgb));
+    color: rgb(var(--color-foreground-rgb) / 0.9);
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform var(--surface-transition-duration) var(--surface-transition-timing),
+      border-color var(--surface-transition-duration) var(--surface-transition-timing),
+      box-shadow var(--surface-transition-duration) var(--surface-transition-timing);
+  }
+
+  .about-welcome__button:focus-visible {
+    outline: 2px solid currentcolor;
+    outline-offset: 3px;
+  }
+
+  .about-welcome__body {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgb(var(--color-foreground-rgb) / 0.8);
+  }
+
+  .about-welcome__body p + p {
+    margin-top: 1.15rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    .about-welcome__panel {
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr);
+      align-items: start;
+    }
+
+    .about-welcome__body {
+      padding-top: 0.35rem;
+    }
+  }
+
+  @media (any-pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .about-welcome__button:hover {
+      transform: translateY(-1px);
+      border-color: rgb(var(--color-foreground-rgb) / 0.22);
+      box-shadow: 0 12px 24px rgb(var(--color-shadow-rgb) / 0.08);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .about-welcome {
+      --about-welcome-panel-radius: 24px;
+      --about-welcome-panel-padding: 1.35rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "About welcome",
+  "tag": "section",
+  "class": "section-wrapper",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Welcome"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Where Nature Meets Intention"
+    },
+    {
+      "type": "richtext",
+      "id": "supporting_text",
+      "label": "Supporting text",
+      "default": "<p>Thoughtfully composed bouquets shaped for everyday beauty, meaningful gifting, and quiet celebration.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Share the origin of your brand, what guides your work, and why your approach feels distinct. This column is best used for one or two grounded paragraphs.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop bouquets"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page"
+        },
+        {
+          "value": "full-width",
+          "label": "Full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 120,
+      "step": 1,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "About welcome",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

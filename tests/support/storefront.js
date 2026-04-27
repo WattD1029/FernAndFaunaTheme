@@ -124,9 +124,14 @@ function collectionPath() {
   return process.env.COLLECTION_PATH;
 }
 
+function aboutPath() {
+  return process.env.ABOUT_PATH;
+}
+
 module.exports = {
   gotoStorefront,
   expectNoHorizontalOverflow,
   productPath,
   collectionPath,
+  aboutPath,
 };
