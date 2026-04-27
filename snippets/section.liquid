@@ -7,7 +7,7 @@
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
-  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}{% if section.settings.custom_class != blank %} {{ section.settings.custom_class | escape }}{% endif %}"
   data-testid="ui-test-section"
 
   {% if request.visual_preview_mode %}
@@ -53,6 +53,7 @@
         layout-panel-flex--{{ section.settings.content_direction }}
         section-content-wrapper
         {% if section.settings.vertical_on_mobile %} mobile-column{% endif %}
+        {% if section.settings.custom_class != blank %} {{ section.settings.custom_class | escape }}__content{% endif %}
       "
       style="
         {% render 'layout-panel-style', settings: section.settings %}
@@ -93,5 +94,105 @@
 
   .custom-section-content {
     z-index: var(--layer-flat);
+  }
+
+  .about-welcome-layout {
+    --about-welcome-panel-radius: 30px;
+    --about-welcome-panel-padding: clamp(1.5rem, 1rem + 2vw, 3rem);
+    --about-welcome-gap: clamp(1.5rem, 1.2rem + 1vw, 3rem);
+  }
+
+  .about-welcome-layout .custom-section-content {
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.08);
+    border-radius: var(--about-welcome-panel-radius);
+    background:
+      linear-gradient(180deg, rgb(var(--color-background-rgb)), rgb(var(--color-background-rgb) / 0.96)),
+      linear-gradient(135deg, rgb(236 228 218 / 0.55), rgb(255 255 255 / 0));
+    box-shadow: 0 18px 44px rgb(var(--color-shadow-rgb) / 0.06);
+  }
+
+  .about-welcome-layout .section-content-wrapper {
+    gap: var(--about-welcome-gap);
+    padding: var(--about-welcome-panel-padding);
+    align-items: start;
+  }
+
+  .about-welcome-layout .block:first-child {
+    min-width: 0;
+  }
+
+  .about-welcome-layout .block:last-child {
+    min-width: 0;
+    color: rgb(var(--color-foreground-rgb) / 0.8);
+    line-height: 1.75;
+  }
+
+  .about-welcome-layout .block:first-child p:first-child {
+    margin: 0 0 0.8rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(110 89 72);
+  }
+
+  .about-welcome-layout .block:first-child h2 {
+    margin: 0;
+    max-width: 12ch;
+    font-size: clamp(2rem, 1.5rem + 2vw, 3.6rem);
+    line-height: 0.97;
+    letter-spacing: -0.04em;
+    color: rgb(var(--color-foreground-rgb) / 0.96);
+    text-wrap: balance;
+  }
+
+  .about-welcome-layout .block:first-child h2 + p {
+    margin-top: 1rem;
+    max-width: 28rem;
+    color: rgb(var(--color-foreground-rgb) / 0.72);
+    line-height: 1.6;
+  }
+
+  .about-welcome-layout .block:first-child p:last-child a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.9rem;
+    width: fit-content;
+    margin-top: 0.25rem;
+    padding: 0.8rem 1.15rem;
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.14);
+    border-radius: 999px;
+    background: rgb(var(--color-background-rgb));
+    color: rgb(var(--color-foreground-rgb) / 0.9);
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform var(--surface-transition-duration) var(--surface-transition-timing),
+      border-color var(--surface-transition-duration) var(--surface-transition-timing),
+      box-shadow var(--surface-transition-duration) var(--surface-transition-timing);
+  }
+
+  .about-welcome-layout .block:first-child p:last-child a:focus-visible {
+    outline: 2px solid currentcolor;
+    outline-offset: 3px;
+  }
+
+  .about-welcome-layout .block:last-child p + p {
+    margin-top: 1.15rem;
+  }
+
+  @media (any-pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .about-welcome-layout .block:first-child p:last-child a:hover {
+      transform: translateY(-1px);
+      border-color: rgb(var(--color-foreground-rgb) / 0.22);
+      box-shadow: 0 12px 24px rgb(var(--color-shadow-rgb) / 0.08);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .about-welcome-layout {
+      --about-welcome-panel-radius: 24px;
+      --about-welcome-panel-padding: 1.35rem;
+    }
   }
 {% endstylesheet %}
